@@ -3,11 +3,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float jump = 200f;
 
     void Update()
     {
         // taking user input for left and right keys, and assigning them into a variable
         float horizontal = Input.GetAxis("Horizontal") * moveSpeed;
+        
         // storying the getcomponent rigidbody2d into a variable, this access's the rigidbody component
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
         // this allows the user to move by hitting the left and right arrow keys
@@ -21,6 +23,11 @@ public class Player : MonoBehaviour
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.flipX = horizontal < 0;
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            rigidbody2D.AddForce(Vector2.up * jump);
         }
     }
 }
