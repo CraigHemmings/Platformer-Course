@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float jump = 200f;
+    [SerializeField] float jumpForce = 200f;
 
     void Update()
     {
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            rigidbody2D.AddForce(Vector2.up * jump);
+            rigidbody2D.AddForce(Vector2.up * jumpForce);
         }
     }
 }
