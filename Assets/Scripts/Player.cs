@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
         // this allows the user to move by hitting the left and right arrow keys
         rigidbody2D.velocity = new Vector2(horizontal, rigidbody2D.velocity.y);
+
+        Animator animator = GetComponent<Animator>();
+        bool walking = horizontal != 0;
+        animator.SetBool("Walk", walking);
     }
 }
   
