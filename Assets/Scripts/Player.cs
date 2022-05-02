@@ -1,9 +1,17 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float jumpForce = 200f;
+    Vector3 startPosition;
+
+    void Start()
+    {
+        startPosition = transform.position;
+    }
+
 
     void Update()
     {
@@ -35,12 +43,9 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    internal void ResetToStart()
     {
-        if (other.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
+        transform.position = startPosition;
     }
 }
   
