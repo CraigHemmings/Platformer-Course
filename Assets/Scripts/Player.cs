@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
         {
             rigidbody2D.AddForce(Vector2.up * jumpForce);
         }
+
     }
 }
   
